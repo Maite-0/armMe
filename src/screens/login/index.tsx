@@ -1,13 +1,15 @@
-import React, {FC} from 'react';
-import {useLogin} from './util';
-import {View, Text, TextInput, Button,Image} from 'react-native';
-import {styles} from '../login/style';
+import React, { FC, useState } from 'react';
+import { useLogin } from './util';
+import { View, Text, TextInput, Button } from 'react-native';
+import { styles } from '../login/style';
 import Toast from 'react-native-toast-message';
 import ShaImage from '../../components/image/shaImage';
+import ShaIcon from '../../components/icon/shaIcon';
 
 const Login: FC<any> = (props) => {
-  const {navigation} = props;
-  const {setEmail, setPassword, email, password, handleLogin} = useLogin(navigation);
+  const { navigation } = props;
+  const { setEmail, setPassword, email, password, handleLogin } = useLogin(navigation);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   return (
     <View style={styles.container}>
@@ -19,10 +21,6 @@ const Login: FC<any> = (props) => {
         </Text>
       </View>
 
-      {/* <Text style={styles.welcomeText}>
-        Welcome to the ARMME, please login to continue
-      </Text> */}
-
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -30,14 +28,25 @@ const Login: FC<any> = (props) => {
         value={email}
         onChangeText={setEmail}
       />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
-      
+
+      <View style={styles.passwordContainer}>
+        <TextInput
+          style={styles.passwordInput}
+          placeholder="Password"
+          secureTextEntry={!isPasswordVisible}
+          value={password}
+          onChangeText={setPassword}
+        />
+          <ShaIcon
+            name={isPasswordVisible ? "eye-off" : "eye"}
+            type="feather"
+            size={25}
+            color="gray"
+            style={styles.eyeIcon}
+            onPress={() => setIsPasswordVisible(!isPasswordVisible)} />
+
+      </View>
+
       <View style={styles.buttonContainer}>
         <Button onPress={handleLogin} title="Login" color="#007BFF" />
       </View>

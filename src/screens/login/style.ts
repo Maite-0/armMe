@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
       backgroundColor: '#f8f8f8',
     },
     titleContainer: {
-      flexDirection: 'row',  // Aligns icon & text in a row
+      flexDirection: 'row',  
       alignItems: 'center', 
       marginBottom: 25,
     },
@@ -23,7 +23,6 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
     },
     armText: {
-      //color: '#FFFFFF',
       color: "#007BFF",
     },
     meText: {
@@ -45,8 +44,26 @@ export const styles = StyleSheet.create({
       marginBottom: 15,
       backgroundColor: '#fff',
     },
+    passwordContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: '#ccc',
+      borderRadius: 8,
+      paddingHorizontal: 10,
+      marginBottom: 15,
+      backgroundColor: '#fff',
+      width: '100%',
+    },
+    passwordInput: {
+      flex: 1,
+      height: 50,
+    },
+    eyeIcon: {
+      marginLeft: 10,
+    },
     buttonContainer: {
       width: '100%',
       marginTop: 10,
     },
-  });
+});
