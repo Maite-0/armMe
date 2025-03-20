@@ -40,7 +40,7 @@ const Login: FC<any> = (props) => {
           <ShaIcon
             name={isPasswordVisible ? "eye-off" : "eye"}
             type="feather"
-            size={25}
+            size={18}
             color="gray"
             style={styles.eyeIcon}
             onPress={() => setIsPasswordVisible(!isPasswordVisible)} />
